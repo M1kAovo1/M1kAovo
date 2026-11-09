@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+<!-- Coastal inlet after midnight; navy ink, moonlit mist, quiet rooftops, warm lamps, water foreground. -->
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2=".15" y2="1"><stop stop-color="#142839"/><stop offset=".62" stop-color="#3a6074"/><stop offset="1" stop-color="#839b9c"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#517e8b"/><stop offset="1" stop-color="#163b51"/></linearGradient>
+<radialGradient id="halo"><stop stop-color="#f6dcaa" stop-opacity=".3"/><stop offset="1" stop-color="#fff4c8" stop-opacity="0"/></radialGradient>
+<mask id="c"><rect width="1200" height="840" fill="#fff"/><circle cx="754" cy="190" r="88" fill="#000"/></mask>
+</defs>
+<rect width="1200" height="840" fill="url(#g)"/>
+<circle cx="688" cy="250" r="252" fill="url(#halo)"/>
+<circle cx="689" cy="262" r="97" fill="#ffe6b6" mask="url(#c)"/>
+<g fill="#e9dfbc">
+<circle cx="142" cy="127" r="3"/><circle cx="225" cy="231" r="2"/><circle cx="997" cy="116" r="3"/>
+<circle cx="1071" cy="202" r="2"/><circle cx="428" cy="94" r="2.3"/><circle cx="889" cy="65" r="1.8"/>
+</g>
+<path d="M0 494Q141 401 288 468Q421 390 530 444Q670 358 805 428Q989 354 1200 406V647H0Z" fill="#476c75"/>
+<path d="M0 548Q162 494 295 522Q475 460 609 519Q858 460 1200 508V671H0Z" fill="#294f60"/>
+<path d="M0 612h1200v228H0Z" fill="url(#sea)"/>
+<!-- warm harbor -->
+<path d="M58 600v-102l67-25 87 33v100Z" fill="#1d3d4c"/>
+<path d="M46 510l83-64 88 65" fill="none" stroke="#153443" stroke-width="18" stroke-linejoin="round"/>
+<rect x="87" y="526" width="24" height="43" fill="#f5c79a" opacity=".8"/><rect x="151" y="526" width="26" height="42" fill="#f5c79a" opacity=".65"/>
+<path d="M221 605v-73l52-30 53 30v72Z" fill="#1f4050"/>
+<path d="m209 534 64-46 64 46" fill="none" stroke="#173745" stroke-width="14"/>
+<rect x="262" y="549" width="17" height="28" fill="#f0c797" opacity=".7"/>
+<path d="M841 599v-99l53-42 59 42v99Z" fill="#1b3b4a"/>
+<path d="m832 504 60-58 71 58" fill="none" stroke="#142f3e" stroke-width="13"/>
+<rect x="870" y="534" width="19" height="32" fill="#e0be9c" opacity=".65"/><rect x="916" y="534" width="16" height="30" fill="#e0be9c" opacity=".7"/>
+<path d="M994 604v-77h117v77Z" fill="#244554"/>
+<path d="M976 526h150" stroke="#173747" stroke-width="10"/>
+<rect x="1014" y="548" width="22" height="24" fill="#e1b88b"/><rect x="1060" y="548" width="24" height="24" fill="#e1b88b"/>
+<!-- jetty and light -->
+<path d="M0 621h1200" stroke="#173746" stroke-width="16"/>
+<path d="M333 628h358m-340-13v83m309-83v83" stroke="#173a48" stroke-width="12"/>
+<path d="M477 613V448" stroke="#193d4d" stroke-width="10"/>
+<path d="M462 459h30v30h-30z" fill="#e3c394" stroke="#153642" stroke-width="5"/>
+<circle cx="477" cy="477" r="71" fill="#f8dcae" opacity=".04"/>
+<!-- tiny moored boat -->
+<path d="M734 640q83 18 181-4l-39 40H767Z" fill="#c8a485" stroke="#153949" stroke-width="5"/>
+<path d="M826 638V540" stroke="#203f4b" stroke-width="5"/>
+<path d="M824 547l-62 81h63Z" fill="#e9ddc5" opacity=".86"/>
+<path d="M832 551l42 71h-41Z" fill="#a5c6c3" opacity=".8"/>
+<g fill="none" stroke="#c7d5bd" stroke-linecap="round">
+<path d="M390 643h201M419 661h154M437 685h112M386 713h234M415 745h175" stroke-width="3" opacity=".5"/>
+<path d="M747 695h190M770 722h137M800 756h72" stroke-width="3" opacity=".37"/>
+<path d="M137 660h85M96 690h156M115 730h93" stroke-width="3" opacity=".25"/>
+</g>
+<path d="M0 801q210-25 368 5q225-31 406 7q191-27 426 1" stroke="#a0bdba" stroke-width="3" fill="none" opacity=".25"/>
+</svg>

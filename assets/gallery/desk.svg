@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+<!-- A warm top-down desk by moonlight, quiet objects placed on wood, no floating objects. -->
+<defs>
+<linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b2a393"/><stop offset=".6" stop-color="#9c9188"/><stop offset="1" stop-color="#817a77"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#fbe1b1" stop-opacity=".6"/><stop offset="1" stop-color="#fff0d8" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="840" fill="url(#wood)"/>
+<path d="M0 210h1200M0 595h1200" stroke="#6f7379" stroke-width="4" opacity=".23"/>
+<path d="M0 224h1200M0 604h1200" stroke="#e9c2a3" stroke-width="2" opacity=".37"/>
+<circle cx="988" cy="133" r="230" fill="url(#glow)"/>
+<!-- textbooks -->
+<g transform="rotate(-13 254 228)">
+<rect x="69" y="60" width="335" height="311" rx="8" fill="#25495a" stroke="#1d3742" stroke-width="7"/>
+<rect x="94" y="79" width="294" height="279" rx="3" fill="#365769"/>
+<path d="M116 107h219M116 128h166" stroke="#9fc0b5" stroke-width="6" opacity=".5"/>
+<path d="M138 189h175M138 208h193M138 227h134" stroke="#d4bba4" stroke-width="5"/>
+<path d="M142 267h169" stroke="#91b5b5" stroke-width="4"/>
+<path d="M87 73v290" stroke="#d5b58f" stroke-width="10"/>
+</g>
+<!-- open journal -->
+<g transform="rotate(9 615 477)">
+<rect x="392" y="273" width="449" height="381" rx="13" fill="#2c4851" opacity=".24"/>
+<path d="M389 267q115-16 219 0v377q-110-13-219 0z" fill="#f2e5ce" stroke="#294451" stroke-width="4"/>
+<path d="M610 267q111-18 222 0v377q-109-14-222 0z" fill="#efe0c6" stroke="#294451" stroke-width="4"/>
+<path d="M610 267v375" stroke="#b48d80" stroke-width="6"/>
+<path d="M413 321h174M413 347h172M413 374h164M413 400h163M413 426h153M413 452h164M413 479h157" stroke="#b6c0b5" stroke-width="3.2"/>
+<path d="M641 321h166M641 347h160M641 374h154M641 400h168" stroke="#bcc4b4" stroke-width="3.2"/>
+<path d="m650 471 32-46 41 67 40-34 39 43" fill="none" stroke="#cfaa8e" stroke-width="4"/>
+<circle cx="738" cy="554" r="35" fill="none" stroke="#9cb3ab" stroke-width="4"/>
+<path d="M721 554h35m-17-18v36" stroke="#9cb3ab" stroke-width="3"/>
+</g>
+<!-- pen -->
+<path d="M918 600 1020 252" stroke="#e2c29a" stroke-width="13" stroke-linecap="round"/>
+<path d="M918 600 1020 252" stroke="#3a5861" stroke-width="4" stroke-linecap="round"/>
+<path d="m1017 263 6-29 7 18" fill="#243f49"/>
+<!-- mug -->
+<ellipse cx="981" cy="696" rx="92" ry="86" fill="#29414b" opacity=".15"/>
+<circle cx="981" cy="660" r="86" fill="#e6d9bd" stroke="#284653" stroke-width="7"/>
+<circle cx="981" cy="660" r="67" fill="#b98367"/>
+<circle cx="981" cy="660" r="53" fill="#996b5a" opacity=".7"/>
+<path d="M1053 638q77-3 65 44-11 36-59 23" fill="none" stroke="#e6d9bd" stroke-width="18"/>
+<path d="M1053 638q77-3 65 44-11 36-59 23" fill="none" stroke="#284653" stroke-width="5"/>
+<!-- corner moon sticker -->
+<circle cx="151" cy="688" r="81" fill="#253f51"/>
+<path d="M174 639a55 55 0 1 0 14 92 47 47 0 1 1-14-92Z" fill="#e8c996"/>
+<circle cx="202" cy="666" r="4" fill="#e8c996"/>
+</svg>

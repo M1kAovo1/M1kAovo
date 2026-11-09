@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+<!-- Quiet moon over open sea, layered blue-green shapes, one small boat, a glowing path. -->
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#101f34"/><stop offset=".7" stop-color="#254a60"/><stop offset="1" stop-color="#5e7881"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3c6476"/><stop offset="1" stop-color="#122e43"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#ffe2ac" stop-opacity=".38"/><stop offset="1" stop-color="#f6d6a6" stop-opacity="0"/></radialGradient>
+<mask id="cut"><rect width="1200" height="840" fill="#fff"/><circle cx="559" cy="178" r="95" fill="#000"/></mask>
+</defs>
+<rect width="1200" height="840" fill="url(#sky)"/>
+<circle cx="495" cy="253" r="340" fill="url(#glow)"/>
+<circle cx="484" cy="250" r="107" fill="#ffeac1" mask="url(#cut)"/>
+<g fill="#a9bfc1"><circle cx="223" cy="143" r="3"/><circle cx="319" cy="217" r="2"/><circle cx="826" cy="134" r="3"/><circle cx="956" cy="263" r="2"/><circle cx="1075" cy="119" r="2"/></g>
+<path d="M0 490q180-60 337-11q201-74 373-22q217-75 490-7v129H0Z" fill="#315263"/>
+<path d="M0 540q293-35 571-8q329-36 629-6v314H0Z" fill="url(#sea)"/>
+<g fill="none" stroke="#a8c3bb" stroke-linecap="round" opacity=".55">
+<path d="M377 561h212M402 577h172M361 598h253M401 628h184M375 663h239M365 695h279M399 742h224M380 789h267" stroke-width="3"/>
+</g>
+<g fill="none" stroke="#799c9e" opacity=".34" stroke-linecap="round">
+<path d="M56 598h188m-167 30h143m-134 54h202m-181 64h163m-182 38h214" stroke-width="3"/>
+<path d="M820 600h284m-264 30h220m-212 51h261m-247 71h200m-196 41h270" stroke-width="3"/>
+</g>
+<!-- small boat resting on sea -->
+<path d="M721 586q90 16 198-5l-36 39H755Z" fill="#bf9982" stroke="#1c3849" stroke-width="6"/>
+<path d="M810 581V432" stroke="#253f4d" stroke-width="6"/>
+<path d="M808 449l-97 117h100Z" fill="#e9d9c0" opacity=".91"/>
+<path d="M818 452l73 110h-73Z" fill="#9dc0bd" opacity=".78"/>
+<path d="M746 617q90 21 165-3" stroke="#bed4c4" stroke-width="3" fill="none" opacity=".42"/>
+<path d="M0 827q278-32 544 5q350-28 656-2" stroke="#6c9396" stroke-width="4" fill="none" opacity=".38"/>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+<!-- Late train home; window as the hero, distant stars, blurred city, paper ticket in foreground. -->
+<defs>
+<linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#162d46"/><stop offset=".7" stop-color="#355776"/><stop offset="1" stop-color="#a0b0af"/></linearGradient>
+<linearGradient id="seat" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#536779"/><stop offset="1" stop-color="#273b50"/></linearGradient>
+</defs>
+<rect width="1200" height="840" fill="#243d50"/>
+<!-- train roof trim -->
+<path d="M0 67h1200M0 96h1200" stroke="#8a9e9f" stroke-width="5" opacity=".5"/>
+<rect x="115" y="78" width="978" height="593" rx="85" fill="#142e41" stroke="#b3b5a8" stroke-width="13"/>
+<rect x="144" y="108" width="920" height="529" rx="57" fill="url(#night)"/>
+<g fill="#f6deb0" opacity=".8"><circle cx="292" cy="189" r="2"/><circle cx="408" cy="239" r="2.6"/><circle cx="759" cy="171" r="1.8"/><circle cx="908" cy="203" r="2.4"/></g>
+<circle cx="771" cy="241" r="43" fill="#f0d7ad"/>
+<path d="M144 408Q310 311 467 365Q617 295 774 362Q911 304 1064 346v291H144Z" fill="#44677e"/>
+<path d="M144 468Q308 410 506 439Q652 391 825 431Q956 399 1064 420v217H144Z" fill="#264a62"/>
+<g fill="#25445d"><rect x="187" y="394" width="130" height="182"/><rect x="367" y="405" width="121" height="181"/><rect x="807" y="399" width="175" height="188"/></g>
+<g fill="#e3b98e" opacity=".68">
+<rect x="218" y="432" width="22" height="28"/><rect x="258" y="432" width="22" height="28"/>
+<rect x="390" y="450" width="22" height="31"/><rect x="438" y="448" width="22" height="31"/>
+<rect x="839" y="432" width="24" height="32"/><rect x="904" y="432" width="22" height="32"/>
+</g>
+<path d="M144 565Q452 534 732 564Q922 546 1064 563" stroke="#9bafb0" stroke-width="3" fill="none"/>
+<path d="M540 108v530" stroke="#132f43" stroke-width="23"/>
+<path d="M540 108v530" stroke="#a9b3a8" stroke-width="4"/>
+<path d="M113 652h982" stroke="#ddc3a5" stroke-width="15"/>
+<path d="M0 683h1200v157H0Z" fill="#253d50"/>
+<path d="M0 686h1200" stroke="#9ba5a0" stroke-width="7"/>
+<!-- passenger ledge / ticket -->
+<g transform="rotate(-5 352 741)">
+<rect x="210" y="696" width="285" height="106" rx="9" fill="#d6c7af"/>
+<path d="M225 718h212M225 738h173M225 764h152" stroke="#9aaba9" stroke-width="5" opacity=".75"/>
+<circle cx="453" cy="751" r="24" fill="none" stroke="#a87e70" stroke-width="4"/>
+<path d="m445 751 6 7 11-16" stroke="#a87e70" stroke-width="4" fill="none"/>
+</g>
+<!-- headphones at window ledge -->
+<path d="M776 738v-20q0-58 62-58 59 0 59 58v20" fill="none" stroke="#a9b7b2" stroke-width="16"/>
+<rect x="761" y="720" width="31" height="78" rx="14" fill="#d5a388" stroke="#203846" stroke-width="4"/>
+<rect x="882" y="720" width="31" height="78" rx="14" fill="#d5a388" stroke="#203846" stroke-width="4"/>
+<path d="M780 798q37 16 77 0" stroke="#bdc6b8" stroke-width="3" fill="none"/>
+</svg>
