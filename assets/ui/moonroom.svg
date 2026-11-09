@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="730" viewBox="0 0 900 730" role="img" aria-labelledby="title desc">
+  <!--
+    Scene plan: an unnamed student study in a quiet coastal town, after midnight.
+    Story: C++ notes are still open; a cup of tea and headphones rest nearby;
+    a warm desk lamp faces the moonlit window.
+    Palette: deep navy, blue-green ink, moon ivory, faded teal, warm honey, clay rose.
+    Layers: floating stars -> arched window -> bay and roofs -> shelf -> desk light
+    -> laptop and paper -> mug and plant. Laptop sits on the desk; books touch shelf;
+    lamp and cup have contact shadows. All shapes stay inside the artboard.
+    This is original vector art, no external images or fonts.
+  -->
+  <title id="title">月下的书桌</title>
+  <desc id="desc">夜晚的书房里，弯月映在窗外的海面上，桌边放着打开的电脑、C++ 代码、书本、耳机和茶杯</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2=".2" y2="1">
+      <stop offset="0" stop-color="#182f46"/>
+      <stop offset=".55" stop-color="#2b5165"/>
+      <stop offset="1" stop-color="#72909a"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#547a8b"/>
+      <stop offset="1" stop-color="#23465b"/>
+    </linearGradient>
+    <radialGradient id="moonGlow">
+      <stop offset="0" stop-color="#fff0bd" stop-opacity=".34"/>
+      <stop offset=".4" stop-color="#fce4b9" stop-opacity=".11"/>
+      <stop offset="1" stop-color="#e7d3bd" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d2b79b"/><stop offset="1" stop-color="#806f6a"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#b88d79"/><stop offset="1" stop-color="#6e595a"/>
+    </linearGradient>
+    <linearGradient id="lampLight" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8dcb1" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#f8dcb1" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="archClip">
+      <path d="M231 476V230c0-132 93-203 230-203s230 71 230 203v246Z"/>
+    </clipPath>
+    <mask id="crescentCut">
+      <rect width="900" height="730" fill="#fff"/>
+      <circle cx="503" cy="166" r="54" fill="#000"/>
+    </mask>
+    <filter id="fineGrain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".52" numOctaves="2" seed="7"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".09"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- atmosphere -->
+  <ellipse cx="459" cy="305" rx="315" ry="310" fill="#9fb7b1" opacity=".04"/>
+  <path d="M93 533q-48 39-28 113m751-115q46 31 26 107" fill="none" stroke="#76919a" stroke-width="2" opacity=".35"/>
+  <circle cx="124" cy="186" r="2.2" fill="#e9d3a7"/><circle cx="164" cy="318" r="1.7" fill="#d9d8bc"/>
+  <circle cx="804" cy="210" r="2" fill="#ebd09f"/><circle cx="743" cy="95" r="1.8" fill="#9ebec3"/>
+
+  <!-- window outer molding and inner sky -->
+  <path d="M212 497V230c0-141 101-219 249-219s249 78 249 219v267Z" fill="#102937" stroke="#a6aaa0" stroke-width="7"/>
+  <path d="M226 485V230c0-133 95-205 235-205s235 72 235 205v255Z" fill="#e1c3a2" stroke="#233d49" stroke-width="5"/>
+  <g clip-path="url(#archClip)">
+    <rect x="220" y="18" width="490" height="473" fill="url(#sky)"/>
+    <!-- moon halo with an unmistakable slender crescent -->
+    <circle cx="481" cy="168" r="185" fill="url(#moonGlow)"/>
+    <circle cx="464" cy="180" r="61" fill="#ffe9b8" mask="url(#crescentCut)"/>
+    <circle cx="456" cy="158" r="98" fill="none" stroke="#f5deb3" stroke-width="1" opacity=".1"/>
+    <!-- constellations -->
+    <g fill="#f6dbac">
+      <circle cx="314" cy="132" r="2"/><circle cx="343" cy="89" r="1.5"/>
+      <circle cx="376" cy="166" r="1.5"/><circle cx="600" cy="115" r="2"/>
+      <circle cx="643" cy="207" r="1.4"/><circle cx="292" cy="239" r="1.4"/>
+      <circle cx="562" cy="71" r="1.6"/><circle cx="396" cy="61" r="1.3"/>
+    </g>
+    <g stroke="#c6d7d1" stroke-width="1" opacity=".35" fill="none">
+      <path d="m316 130 27-42 33 77"/><path d="m600 115 40 91 14-32"/>
+    </g>
+    <path d="M220 354q66-62 128-25q48-66 110-36q81-84 140-31q57-47 113-15v244H220Z" fill="#426374"/>
+    <path d="M220 386q80-43 152-13q81-54 141-18q85-39 198-19v148H220Z" fill="#315568"/>
+    <path d="M220 401H710V487H220Z" fill="url(#water)"/>
+    <g fill="none" stroke="#c8d5b7" stroke-linecap="round" opacity=".34">
+      <path d="M430 411h80M447 425h57M423 438h102M456 450h53M439 469h87" stroke-width="2.4"/>
+      <path d="M290 420h31m-48 38h73m228-17h55m-23 17h43" stroke-width="1.7"/>
+    </g>
+    <!-- far village rooftops -->
+    <path d="M235 411v-65l41-16 43 24v60Z" fill="#294657"/>
+    <path d="M229 347l47-34 50 36" fill="none" stroke="#243b48" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M267 356h17v34h-17Z" fill="#d9b18d" opacity=".72"/>
+    <path d="M625 410v-89l22-18 26 26v81Z" fill="#294658"/>
+    <path d="m616 330 33-42 33 42" fill="none" stroke="#243b48" stroke-width="8"/>
+    <rect x="640" y="350" width="12" height="19" rx="1" fill="#ead1a1" opacity=".65"/>
+    <path d="M573 411v-45l26-15 17 15v45Z" fill="#304e5c"/>
+    <rect x="584" y="375" width="9" height="16" fill="#e6bd93" opacity=".65"/>
+  </g>
+  <!-- window beams -->
+  <path d="M462 31v466" stroke="#152f3b" stroke-width="16"/>
+  <path d="M223 294h478" stroke="#152f3b" stroke-width="16"/>
+  <path d="M462 31v465M223 294h478" stroke="#d9bea0" stroke-width="5"/>
+  <path d="M205 484h515v24H205z" fill="#233d48"/>
+  <path d="M211 486h503v11H211z" fill="#d6b89d"/>
+  <path d="M196 506h535v17H196Z" fill="#193442" stroke="#9da99e" stroke-width="2"/>
+
+  <!-- wall shelf: book spines and small charm -->
+  <path d="M63 293h128" fill="none" stroke="#bd9c7f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M84 293v17m86-17v17" stroke="#bd9c7f" stroke-width="3"/>
+  <rect x="73" y="208" width="23" height="81" rx="2" fill="#a9bbad" stroke="#203a46" stroke-width="2"/>
+  <rect x="99" y="223" width="22" height="66" rx="2" fill="#dbaf8d" stroke="#203a46" stroke-width="2"/>
+  <rect x="125" y="214" width="25" height="75" rx="2" fill="#819fab" stroke="#203a46" stroke-width="2"/>
+  <rect x="153" y="235" width="19" height="54" rx="2" fill="#f2dcb9" stroke="#203a46" stroke-width="2"/>
+  <path d="M78 224v53M104 236v41M132 227v48M158 246v34" stroke="#fff0d6" stroke-width="1.7" opacity=".7"/>
+  <path d="M74 259h21m30-3h24" stroke="#273f49" stroke-width="2"/>
+  <!-- original tiny star charm hanging from the shelf -->
+  <path d="M176 294v27" stroke="#d8bc9b" stroke-width="2"/>
+  <path d="m176 319 6 10 12 3-9 8 2 12-11-5-11 5 3-12-10-8 13-3z" fill="#d1a379" stroke="#243b45" stroke-width="2"/>
+  <circle cx="172" cy="334" r="1.6" fill="#243b45"/><circle cx="180" cy="334" r="1.6" fill="#243b45"/>
+
+  <!-- a note pinned to the wall -->
+  <g transform="rotate(-8 775 266)">
+    <rect x="740" y="221" width="81" height="111" rx="3" fill="#e9d6b9" stroke="#2a4653" stroke-width="2.5"/>
+    <circle cx="782" cy="227" r="5" fill="#b77e6a"/>
+    <path d="M753 251h54m-54 14h43m-43 13h49" fill="none" stroke="#8caba7" stroke-width="2.3" stroke-linecap="round"/>
+    <path d="m767 310 6-15 7 9 7-18 11 24" fill="none" stroke="#bb8e79" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+
+  <!-- soft warm desk lamp: physical base and curved stem -->
+  <ellipse cx="179" cy="585" rx="55" ry="10" fill="#0b1e29" opacity=".3"/>
+  <path d="M178 578L146 443L198 363" stroke="#1b3844" stroke-width="11" stroke-linecap="round" fill="none"/>
+  <path d="M178 578L146 443L198 363" stroke="#a8907b" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <circle cx="147" cy="442" r="10" fill="#dfb38d" stroke="#203d49" stroke-width="3"/>
+  <circle cx="198" cy="363" r="11" fill="#dfb38d" stroke="#203d49" stroke-width="3"/>
+  <path d="M186 344q17-24 36-24 35 0 49 41l-75 22q-14-19-10-39Z" fill="#dba783" stroke="#1f3d47" stroke-width="3"/>
+  <path d="m208 377 52-18" stroke="#ffebc8" stroke-width="7" stroke-linecap="round" opacity=".85"/>
+  <path d="M239 374L405 545H156Z" fill="url(#lampLight)" opacity=".55"/>
+  <ellipse cx="177" cy="581" rx="48" ry="11" fill="#c6a88b" stroke="#27404b" stroke-width="3"/>
+  <path d="M151 579h55" stroke="#f2dcc0" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- hanging headset on side hook -->
+  <path d="M734 377v-20q0-13 13-13h12" fill="none" stroke="#bd9c7f" stroke-width="5"/>
+  <path d="M740 427v-22q0-46 41-46t41 46v22" fill="none" stroke="#233f4d" stroke-width="11"/>
+  <path d="M740 427v-22q0-46 41-46t41 46v22" fill="none" stroke="#87a3a8" stroke-width="5"/>
+  <path d="M737 410q-14-2-14 13v28q0 11 15 11l8-5v-43z" fill="#d2a685" stroke="#233f4d" stroke-width="3"/>
+  <path d="M824 410q15-2 15 13v28q0 11-15 11l-8-5v-43z" fill="#d2a685" stroke="#233f4d" stroke-width="3"/>
+  <path d="M739 447v25q0 15-11 20" fill="none" stroke="#243b48" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- desk table and legs -->
+  <path d="M63 554h771q15 0 15 14v28H50v-28q0-14 13-14z" fill="url(#wood)" stroke="#1d3744" stroke-width="4"/>
+  <path d="M61 562h770" stroke="#f1d5b0" stroke-width="4" opacity=".52"/>
+  <path d="M84 596l-20 115m742-115 21 115" stroke="#243943" stroke-width="22" stroke-linecap="round"/>
+  <path d="M84 596l-18 113m739-112 20 111" stroke="#ad8c7b" stroke-width="12" stroke-linecap="round"/>
+  <ellipse cx="455" cy="591" rx="351" ry="17" fill="#102633" opacity=".3"/>
+
+  <!-- notebook on desk, with physical shadow -->
+  <g transform="rotate(-9 223 550)">
+    <rect x="86" y="514" width="230" height="78" rx="5" fill="#1a3945" opacity=".4"/>
+    <rect x="91" y="505" width="223" height="78" rx="4" fill="#e5d4b7" stroke="#2c4650" stroke-width="3"/>
+    <path d="M112 519h181M112 533h171M112 547h139M112 560h167" stroke="#97aaa1" stroke-width="2" opacity=".75"/>
+    <path d="M106 506v75" stroke="#bb8375" stroke-width="3"/>
+    <path d="M286 504l28 69" stroke="#eec28a" stroke-width="6" stroke-linecap="round"/>
+    <path d="m312 567 5 11-11-5" fill="#243f4b"/>
+  </g>
+
+  <!-- actual laptop supported by desk -->
+  <ellipse cx="504" cy="581" rx="202" ry="12" fill="#172c39" opacity=".35"/>
+  <rect x="347" y="359" width="302" height="208" rx="13" fill="#142d3a" stroke="#506a70" stroke-width="3.5"/>
+  <rect x="360" y="375" width="276" height="177" rx="6" fill="#1d3d49"/>
+  <circle cx="498" cy="367" r="2.6" fill="#98aead"/>
+  <!-- screen's understated code editor -->
+  <path d="M360 398h276" stroke="#557a7d" stroke-width="2" opacity=".55"/>
+  <circle cx="374" cy="388" r="2.3" fill="#dcaa91"/>
+  <circle cx="384" cy="388" r="2.3" fill="#d9c293"/>
+  <circle cx="394" cy="388" r="2.3" fill="#a5c8b7"/>
+  <g font-family="ui-monospace,Menlo,monospace" font-size="16" fill="#c8dfd6">
+    <text x="383" y="428" fill="#e5b89e">vector&lt;int&gt; a;</text>
+    <text x="383" y="459">solve(n);</text>
+    <text x="383" y="489" fill="#e1d6a7">return 0;</text>
+  </g>
+  <path d="M347 563h302l39 24H302z" fill="#98adb0" stroke="#1a3340" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M352 568h289l19 12H330z" fill="#cad2c8"/>
+  <path d="M404 576h178" stroke="#779398" stroke-width="3"/>
+  <path d="M303 586h384q-8 9-21 10H324q-12-1-21-10z" fill="#254352"/>
+  <path d="M335 590h318" stroke="#b2c3be" stroke-width="2" opacity=".58"/>
+
+  <!-- mug at edge of desk -->
+  <ellipse cx="751" cy="557" rx="55" ry="12" fill="#102633" opacity=".22"/>
+  <path d="M711 511h73l-11 65h-53z" fill="#ebd5b3" stroke="#29434f" stroke-width="3.2"/>
+  <path d="M781 518q36-7 36 17q0 25-37 22" fill="none" stroke="#dbc4a4" stroke-width="11"/>
+  <path d="M781 518q36-7 36 17q0 25-37 22" fill="none" stroke="#29434f" stroke-width="3"/>
+  <path d="M725 526h45" stroke="#bb8876" stroke-width="3" stroke-linecap="round"/>
+  <path d="M732 494q-9-14 3-28m21 28q-8-14 5-28" fill="none" stroke="#bac4b4" stroke-width="3" opacity=".7" stroke-linecap="round"/>
+
+  <!-- narrow plant under the desk corner -->
+  <path d="M790 597v-53m0 27q-22-32-44-39m44 25q20-28 39-28" stroke="#88a997" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M767 543q-25-8-29-26q24-13 29 26zm29 3q10-27 31-27q4 25-31 27zm-9 20q-29-12-28-30q29-7 28 30z" fill="#769b8c" stroke="#183743" stroke-width="2"/>
+  <path d="M770 591h51l-8 42h-36z" fill="#a77e70" stroke="#253c48" stroke-width="3"/>
+  <path d="M774 599h44" stroke="#ebc3a2" stroke-width="3"/>
+
+  <!-- small finishing details -->
+  <path d="M110 625h73m502 31h112" stroke="#9bb6b0" stroke-width="2" opacity=".18"/>
+  <path d="M127 122l4-9 5 9-5 8zm652 40 4-8 4 8-4 8z" fill="#f4d9a7" opacity=".78"/>
+  <circle cx="118" cy="401" r="3" fill="#e0be97" opacity=".65"/>
+  <circle cx="851" cy="303" r="2" fill="#9cbfc6"/>
+  <rect x="13" y="11" width="875" height="702" fill="#ffffff" opacity=".15" filter="url(#fineGrain)" pointer-events="none"/>
+</svg>
