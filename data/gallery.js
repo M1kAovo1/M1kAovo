@@ -132,7 +132,7 @@ window.GALLERY_ALBUMS = [
     id: "wallpapers",
     title: "电脑壁纸",
     ratio: "16 / 9",
-    coverId: "wallpaper-moon",
+    coverId: "wallpapers-01",
     photos: [
       {
         id: "wallpapers-01",

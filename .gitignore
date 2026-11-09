@@ -14,3 +14,7 @@ private/
 *.m4a
 *.wav
 *.lrc
+
+# Python 工具运行时自动生成的缓存，不属于网站源码
+__pycache__/
+*.pyc

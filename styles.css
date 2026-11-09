@@ -1984,3 +1984,18 @@ figure.article-photo figcaption {
 .listen-page #mika-shuffle[data-mode="single"]::before {
   content: "↻";
 }
+
+/* 相册原图入口：预览是高清 WebP，点击这里才载入未经改动的原始照片。 */
+.lightbox-caption-content .lightbox-original {
+  display: inline-block;
+  padding: 5px 8px 2px;
+  color: #e7cba5;
+  font: 12px/1.5 var(--sans);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color .18s;
+}
+.lightbox-caption-content .lightbox-original:hover,
+.lightbox-caption-content .lightbox-original:focus-visible {
+  color: #fff4de;
+}

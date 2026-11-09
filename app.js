@@ -526,6 +526,27 @@ for (const pre of codeBlocks) {
     return album.photos.find(photo => photo.id === id) || null;
   }
 
+
+  // 图片分级：列表用轻量缩略图；点开用高清 WebP；下载永远指向原图。
+  // 若新添加的照片还没生成 WebP，则自动回退到原图，不会显示破图。
+  function galleryOptimizedSrc(src, type) {
+    if (typeof src !== "string") return "";
+    const match = /^assets\/gallery\/(.+)\.(?:jpe?g|png|webp)$/i.exec(src);
+    return match
+      ? `assets/gallery/_optimized/${type}/${match[1]}.webp`
+      : src;
+  }
+
+  app.addEventListener("error", event => {
+    const image = event.target;
+    if (!(image instanceof HTMLImageElement)) return;
+    const original = image.getAttribute("data-gallery-fallback");
+    if (original) {
+      image.removeAttribute("data-gallery-fallback");
+      image.src = original;
+    }
+  }, true);
+
   function gallery(albumId = "") {
     const album = albumId ? albumById(albumId) : null;
     if (albumId && !album) { notFound(); return; }
@@ -545,7 +566,7 @@ for (const pre of codeBlocks) {
               return `<a class="album-card" href="#gallery/${encodeURIComponent(item.id)}">
                 <span class="album-card-visual" data-album="${h(item.id)}">
                   ${cover
-                    ? `<img src="${h(cover.src)}" loading="lazy" decoding="async"
+                    ? `<img src="${h(galleryOptimizedSrc(cover.src, "thumbs"))}" data-gallery-fallback="${h(cover.src)}" loading="lazy" decoding="async"
                              alt="${h(cover.description || cover.title || item.title)}">`
                     : `<span class="album-empty-art" aria-hidden="true">☾</span>`}
                 </span>
@@ -569,7 +590,7 @@ for (const pre of codeBlocks) {
                 data-album-photo="${h(photo.id)}" data-photo-album="${h(album.id)}"
                 aria-label="放大查看${h(photo.title || photo.description || "照片 " + (index + 1))}">
           <span class="album-photo-frame" style="--tile-ratio:${h(album.ratio || "4 / 3")}">
-            <img src="${h(photo.src)}" loading="lazy" decoding="async"
+            <img src="${h(galleryOptimizedSrc(photo.src, "thumbs"))}" data-gallery-fallback="${h(photo.src)}" loading="lazy" decoding="async"
                  alt="${h(photo.description || photo.title || album.title)}">
           </span>
           <span class="album-photo-label">
@@ -894,13 +915,23 @@ app.innerHTML = `
     galleryCurrentImage = albumId ? {albumId, photoIndex} : null;
 
     const img = document.getElementById("lightbox-img");
-    img.src = image.src;
+    const originalSrc = image.src;
+    img.onerror = () => {
+      // WebP 暂不存在或浏览器无法读取时，再请求原图。
+      img.onerror = null;
+      if (img.getAttribute("src") !== originalSrc) img.src = originalSrc;
+    };
+    img.src = galleryOptimizedSrc(originalSrc, "previews");
     img.alt = image.description || image.title || "图片";
     document.getElementById("lightbox-title").textContent = image.title || image.description || "";
     document.getElementById("lightbox-note").textContent =
       image.title && image.description !== image.title ? (image.description || "") : "";
     document.getElementById("lightbox-credit").textContent = image.credit || "";
 
+    // 查看原图或下载原图都是明确点击后才请求，预览时不偷跑十几 MB。
+    const originalLink = document.getElementById("lightbox-original");
+    originalLink.href = image.src;
+    originalLink.setAttribute("aria-label", "在新标签页查看原图：" + (image.title || "照片"));
     const link = document.getElementById("lightbox-download");
     link.href = image.src;
     link.download = image.src.split("?")[0].split("/").pop() || "photo";
