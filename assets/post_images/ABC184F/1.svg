@@ -1,0 +1,88 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 900 320"
+     width="900" height="320">
+
+  <rect width="900" height="320"
+        rx="12" fill="#f3f0e8"/>
+
+  <g font-family="Arial, sans-serif"
+     fill="#203a46">
+
+    <text x="450" y="42" text-anchor="middle"
+          font-size="23" font-weight="bold">
+      Meet in the Middle
+    </text>
+
+    <!-- Left half -->
+    <rect x="65" y="75" width="345" height="68"
+          rx="7" fill="#dce8e5"
+          stroke="#73969b"/>
+
+    <text x="237" y="100" text-anchor="middle"
+          font-size="17" font-weight="bold">
+      Left Half
+    </text>
+    <text x="237" y="124" text-anchor="middle"
+          font-size="14">
+      DFS: enumerate subset sums
+    </text>
+
+    <!-- Right half -->
+    <rect x="490" y="75" width="345" height="68"
+          rx="7" fill="#f0deca"
+          stroke="#ba8a61"/>
+
+    <text x="662" y="100" text-anchor="middle"
+          font-size="17" font-weight="bold">
+      Right Half
+    </text>
+    <text x="662" y="124" text-anchor="middle"
+          font-size="14">
+      DFS: enumerate subset sums
+    </text>
+
+    <!-- Arrows -->
+    <path d="M237 143 V177"
+          stroke="#73969b" stroke-width="2.5"/>
+    <path d="M232 171 L237 179 L242 171"
+          fill="none" stroke="#73969b"
+          stroke-width="2.5"/>
+
+    <path d="M662 143 V177"
+          stroke="#ba8a61" stroke-width="2.5"/>
+    <path d="M657 171 L662 179 L667 171"
+          fill="none" stroke="#ba8a61"
+          stroke-width="2.5"/>
+
+    <rect x="130" y="181" width="215" height="43"
+          rx="5" fill="#b8d1cc"/>
+
+    <text x="237" y="208"
+          text-anchor="middle" font-size="17">
+      Vector L
+    </text>
+
+    <rect x="555" y="181" width="215" height="43"
+          rx="5" fill="#e4c39e"/>
+
+    <text x="662" y="208"
+          text-anchor="middle" font-size="17">
+      Sort Vector R
+    </text>
+
+    <!-- Combination -->
+    <path d="M237 224 V246 H450
+             M662 224 V246 H450 V264"
+          fill="none" stroke="#8e9b95"
+          stroke-width="2.5"/>
+
+    <rect x="214" y="264" width="472" height="43"
+          rx="5" fill="#203a46"/>
+
+    <text x="450" y="291" text-anchor="middle"
+          font-size="16" fill="#f6e8d1">
+      For each x in L: upper_bound(R, T - x)
+    </text>
+  </g>
+</svg>

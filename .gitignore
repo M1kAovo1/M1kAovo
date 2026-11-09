@@ -1,0 +1,16 @@
+.DS_Store
+*.log
+.env
+.env.*
+node_modules/
+.venv/
+dist/
+private/
+
+# 私人音乐文件，不上传到公开仓库
+*.mp3
+*.ncm
+*.flac
+*.m4a
+*.wav
+*.lrc
