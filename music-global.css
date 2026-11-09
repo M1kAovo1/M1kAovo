@@ -1,0 +1,114 @@
+/* M1kAovo: persistent music controller (outside #app). */
+.mika-global-dock {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 150;
+  box-sizing: border-box;
+  width: min(360px, calc(100vw - 24px));
+  padding: 13px 14px 12px;
+  color: #203e4b;
+  background: #e6f0f1;
+  border: 1px solid #c8dbdd;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(21, 47, 60, .19);
+}
+.mika-global-dock[hidden] { display: none !important; }
+.mika-global-dock__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mika-global-dock__cover {
+  flex: none;
+  display: block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1a3544;
+}
+.mika-global-dock__cover[hidden] { display: none; }
+.mika-global-dock__meta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+.mika-global-dock__meta small {
+  color: #a57b56;
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+.mika-global-dock__meta strong,
+.mika-global-dock__meta span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mika-global-dock__meta strong { font-size: 13px; }
+.mika-global-dock__meta span { font-size: 11px; color: #708896; }
+.mika-global-dock__play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: #f8e5c9;
+  background: #1b3948;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.mika-global-dock__play svg { display: block; width: 15px; height: 15px; }
+.mika-global-dock__close {
+  align-self: flex-start;
+  flex: none;
+  width: 22px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #879aa4;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.mika-global-dock__timeline {
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 11px;
+}
+.mika-global-dock__timeline time {
+  color: #738994;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.mika-global-dock__timeline time:last-child { text-align: right; }
+.mika-global-dock__timeline input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 16px;
+  accent-color: #be915f;
+  cursor: pointer;
+}
+.mika-global-dock__audio audio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.mika-global-dock button:focus-visible,
+.mika-global-dock input:focus-visible {
+  outline: 2px solid #bd945e;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .mika-global-dock { right: 10px; bottom: 10px; }
+}

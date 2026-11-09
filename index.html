@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="M1kAovo 的个人网站：算法、数学、计算机、语言、音乐，以及在路上收集的小事。">
+  <meta name="theme-color" content="#172b3a">
+  <title>M1kAovo · 三日月</title>
+  <link rel="icon" type="image/svg+xml" href="assets/ui/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="music-global.css">
+  <link rel="stylesheet" href="fragments.css">
+  <link rel="stylesheet" href="scenes.css">
+
+<!-- highlight.js: VS Code 风格的代码高亮主题 -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/vs2015.min.css"
+>
+
+
+<!-- Markdown -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js">
+</script>
+
+<!-- KaTeX 数学公式 -->
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/katex.min.css">
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/katex.min.js">
+</script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/contrib/auto-render.min.js">
+</script>
+
+<script
+  defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+></script>
+
+  <script src="data/site.js" defer></script>
+  <script src="data/posts.js" defer></script>
+  <script src="data/gallery.js" defer></script>
+  <script src="data/fragments.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="data/playlist.js" defer></script>
+  <script src="music.js" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="read-progress" id="read-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="wide nav-wrap">
+      <a class="brand" href="#home" aria-label="M1kAovo 首页">
+        <span class="brand-crescent" aria-hidden="true"></span>
+        <span class="brand-name">M1kAovo</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="网站导航">
+        <a href="#home" data-nav="home">首页</a>
+        <a href="#gallery" data-nav="gallery">相册</a>
+        <a href="#favorites" data-nav="favorites">听歌</a>
+        <a href="#notes" data-nav="notes">笔记</a>
+        <a href="#fragments" data-nav="fragments">摘句</a>
+        <a href="#messages" data-nav="messages">留言</a>
+        <a href="#projects" data-nav="projects">项目</a>
+        <a href="#about" data-nav="about">关于我</a>
+      </nav>
+      <div class="header-tools">
+        <button id="theme-btn" class="theme-btn" type="button" title="切换正文配色" aria-label="切换正文配色">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.1A8.2 8.2 0 0 1 9.9 4a8.3 8.3 0 1 0 10.1 10.1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </button>
+        <button id="menu-btn" class="menu-btn" type="button" aria-label="展开导航" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div id="app" aria-live="off"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="wide footer-main">
+      <div class="footer-sign"><span class="footer-moon">☾</span> <span id="footer-site-name">M1kAovo</span> </div>
+      <p>三日月の船に乗って、星から星へと旅する</p>
+      <div class="footer-nav"><a href="#notes">1</a><a href="#gallery">2</a><a href="#projects">3</a><a href="#about">4</a></div>
+    </div>
+    <div class="wide footer-bottom"><span>© <span id="year"></span> M1kAovo</span><span>Dreams Everywhere.</span></div>
+  </footer>
+  <dialog class="lightbox" id="lightbox" aria-label="图片预览">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="关闭图片">×</button>
+    <div class="lightbox-stage" id="lightbox-stage">
+      <button type="button" class="lightbox-step lightbox-prev" id="lightbox-prev"
+              aria-label="上一张照片" hidden>‹</button>
+      <img id="lightbox-img" alt="">
+      <button type="button" class="lightbox-step lightbox-next" id="lightbox-next"
+              aria-label="下一张照片" hidden>›</button>
+    </div>
+    <div class="lightbox-caption">
+      <div class="lightbox-caption-content">
+        <strong id="lightbox-title"></strong>
+        <span id="lightbox-note"></span>
+        <small id="lightbox-credit"></small>
+      </div>
+      <a id="lightbox-download" class="lightbox-download" href="#" download
+         aria-label="下载图片" title="下载原图">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"
+             fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v12m-5-5 5 5 5-5M4 17v3h16v-3"/>
+        </svg>
+      </a>
+    </div>
+    <p class="lightbox-save-hint">手机保存到相册：如浏览器先下载文件，可打开原图后使用长按或系统分享菜单保存。</p>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:40px;text-align:center">请启用 JavaScript 以查看本站内容</p></noscript>
+</body>
+</html>
