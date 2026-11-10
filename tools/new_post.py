@@ -19,7 +19,7 @@ choices = {
 
 print("分类：")
 print("1 算法 / 2 数学 / 3 计算机知识")
-print("4 语言 / 5 摸鱼 / 6 其他")
+print("4 语言 / 5 生活 / 6 其他")
 
 title = input("标题：").strip()
 slug = input("英文 ID（例如 my-note）：").strip().lower()

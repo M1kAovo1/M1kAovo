@@ -1,18 +1,20 @@
 
 window.FRAGMENTS = [
 
-  /*
   {
     id: "f001",
-    type: "lyrics",      // lyrics / book / anime / personal
-    text: "你喜欢的原句",
+    type: "lyrics",
+    text: "憂うな今よ永遠に",
     translation: "",
-    work: "作品或歌曲名称",
-    creator: "作者或歌手",
-    image: "assets/fragments/f001.webp",
+    work: "憂い桜",
+    creator: "あたらよ",
+    image: "",
     sourceUrl: "",
-    date: "2026-11-08",
-    tags: ["日语"]
+    date: "2026-11-09",
+    tags: ["音乐", "日语"]
+  },
+
+  {
+
   }
-  */
 ];

@@ -4,6 +4,19 @@
  * category: algorithm / math / cs / language / life
  */
 window.POSTS = [
+  {
+    "id": "commands",
+    "title": "个人网站指令",
+    "category": "cs",
+    "subcategory": "",
+    "tags": [
+      "git"
+    ],
+    "teaser": "",
+    "reading": "",
+    "createdAt": "2026-11-09T21:37:24+08:00",
+    "file": "articles/commands.html"
+  },
 
 {
   id: "oneul-yeogikkaji",
@@ -65,7 +78,7 @@ window.CATEGORIES = [
   {id: "math", label: "数学"},
   {id: "cs", label: "计算机知识"},
   {id: "language", label: "语言"},
-  {id: "life", label: "摸鱼"},
+  {id: "life", label: "生活"},
   {id: "other", label: "其他"}
 ];
 
