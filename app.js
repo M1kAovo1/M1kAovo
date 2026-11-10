@@ -554,7 +554,7 @@ for (const pre of codeBlocks) {
     if (!album) {
       app.innerHTML = `<div class="paper-content">
         <section class="wrap gallery-top gallery-scene-head">
-          <img class="gallery-scene-photo" src="assets/scenes/sky-dream.webp"
+          <img class="gallery-scene-photo" src="assets/scenes/Sea.jpg"
                alt="" aria-hidden="true" loading="eager">
           ${eyebrow("相册")}
           <h1>相册</h1>

@@ -5,10 +5,6 @@
  */
 window.POSTS = [
 
-  {
-    id: ""
-  },
-
 {
   id: "oneul-yeogikkaji",
   title: "오늘은 여기까지",
