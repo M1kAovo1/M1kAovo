@@ -93,14 +93,25 @@ window.SUBCATEGORIES = {
     { id: "abroad", label: "国外"}
   ],
 
+
+  math: [
+    { id: "linear_algebra", label: "线性代数"},
+    { id: "probability", label: "概率论"}
+  ],
+
+  cs: [
+    { id: "algo-ds", label: "算法与数据结构"},
+    { id: "cs-org", label: "计组"},
+    { id: "cs-net", label: "计网"},
+    { id: "os", label: "操作系统"},
+    { id: "ml", label: "机器学习"},
+    { id: "troubles", label: "问题解决"},
+  ],
+
   language: [
     { id: "English", label: "英语"},
     { id: "Japanese", label: "日语"},
     { id: "Korean", label: "韩语"}
   ],
 
-  math: [
-    { id: "linear_algebra", label: "线性代数"},
-    { id: "probability", label: "概率论"}
-  ]
 };

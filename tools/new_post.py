@@ -80,6 +80,29 @@ if category == "algorithm":
 
     subcategory = groups[number]
 
+
+elif category == "cs":
+    groups = {
+        "1": "algo-ds",
+        "2": "cs-org",
+        "3": "cs-net",
+        "4": "os",
+        "5": "ml",
+        "6": "troubles",
+    }
+
+    print("\n计算机知识归属：")
+    print("1 算法与数据结构 / 2 计组 / 3 计网")
+    print("4 操作系统 / 5 机器学习 / 6 问题解决")
+
+    number = input("归属编号：").strip()
+
+    if number not in groups:
+        raise SystemExit("归属编号无效")
+
+    subcategory = groups[number]
+
+
 elif category == "language":
     groups = {
         "1": "English",
@@ -95,6 +118,7 @@ elif category == "language":
         raise SystemExit("归属编号无效")
 
     subcategory = groups[number]
+
 
 post = {
     "id": slug,

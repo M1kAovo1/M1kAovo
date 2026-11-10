@@ -373,14 +373,11 @@ const filtered = POSTS.filter(post => {
   document.getElementById("result-note").textContent =
     `共 ${selected.length} 篇`;
 
-  document.getElementById("notes-results").innerHTML =
+  
+document.getElementById("notes-results").innerHTML =
     selected.length
       ? selected.map(postRow).join("")
-      : `<div class="no-results">
-           <span>☾</span>
-           <p>没有找到文章</p>
-           <button type="button" data-clear>清除搜索条件</button>
-         </div>`;
+      : `<p class="notes-empty">空</p>`;
 }
 
   async function article(id, token) {

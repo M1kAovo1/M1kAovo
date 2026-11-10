@@ -1999,3 +1999,102 @@ figure.article-photo figcaption {
 .lightbox-caption-content .lightbox-original:focus-visible {
   color: #fff4de;
 }
+
+
+/* 笔记分类：空状态 */
+.notes-empty {
+    margin: 0;
+    padding: 32px 0;
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-soft);
+}
+
+
+/* Listen 标题：与 Notes 保持一致 */
+.listen-page__title {
+    font-family: var(--serif);
+    font-size: clamp(37px, 4.8vw, 62px);
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 18px 0 24px;
+}
+
+/* 听歌页面整体留白 */
+.listen-page__inner {
+    padding: 38px clamp(24px, 4vw, 60px) 55px;
+}
+
+.listen-page__subtitle {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 570px) {
+    .listen-page__title {
+        font-size: 37px;
+    }
+}
+
+
+/* 文章正文：稍紧凑，但保留舒适阅读 */
+.article-copy {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.article-copy p {
+    margin-bottom: 0.95em;
+}
+
+.article-copy .lead {
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+}
+
+/* 文章小节标题 */
+.article-copy h2 {
+    font-size: 26px;
+    line-height: 1.45;
+    margin: 34px 0 15px;
+}
+
+.article-copy h3 {
+    font-size: 19px;
+    line-height: 1.45;
+    margin: 24px 0 12px;
+}
+
+/* 缩小文章标题与正文之间的距离 */
+.reading-columns {
+    padding-top: 34px;
+}
+
+.reading-title {
+    padding-top: 44px;
+    padding-bottom: 36px;
+}
+
+/* 代码框留白 */
+.article-copy pre {
+    padding: 44px 18px 17px;
+    margin: 18px 0 22px;
+}
+
+/* 手机阅读 */
+@media (max-width: 570px) {
+    .article-copy {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .article-copy h2 {
+        font-size: 24px;
+        margin-top: 28px;
+    }
+
+    .reading-columns {
+        padding-top: 24px;
+    }
+}
