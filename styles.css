@@ -2098,3 +2098,42 @@ figure.article-photo figcaption {
         padding-top: 24px;
     }
 }
+
+
+/* 代码块：缩小上下留白 */
+.article-copy pre {
+    padding: 40px 18px 16px;
+    margin: 16px 0 22px;
+}
+
+/* 代码文字行距 */
+.article-copy pre code {
+    line-height: 1.6;
+}
+
+/* 自动显示代码语言 */
+.article-copy pre[data-lang]::before {
+    content: attr(data-lang);
+    top: 12px;
+    left: 18px;
+}
+/* M1KAOVO_SEARCH_PATCH_V1: readable keyword highlights in both themes. */
+mark.search-hit {
+  color: inherit;
+  background: rgba(175, 120, 62, .2);
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 2px;
+  padding: 0 .08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.post-match-tag {
+  align-self: flex-start;
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1.6;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 3px 8px;
+}

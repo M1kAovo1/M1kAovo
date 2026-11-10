@@ -53,6 +53,30 @@ const PAUSE_ICON = `
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[c]);
 
+  // M1KAOVO_SEARCH_PATCH_V1: match safely and show the exact matching substring.
+  const matchesSearch = (value, query) =>
+    String(value ?? "").toLocaleLowerCase()
+      .includes(String(query ?? "").trim().toLocaleLowerCase());
+
+  function highlightMatches(value, query) {
+    const text = String(value ?? "");
+    const needle = typeof query === "string" ? query.trim() : "";
+    if (!needle) return h(text);
+
+    const source = text.toLocaleLowerCase();
+    const find = needle.toLocaleLowerCase();
+    let start = 0;
+    let at = source.indexOf(find, start);
+    let html = "";
+    while (at !== -1) {
+      html += h(text.slice(start, at));
+      html += `<mark class="search-hit">${h(text.slice(at, at + needle.length))}</mark>`;
+      start = at + needle.length;
+      at = source.indexOf(find, start);
+    }
+    return html + h(text.slice(start));
+  }
+
   const categoryName = id => CATEGORIES.find(c => c.id === id)?.label ?? "笔记";
   
 const categoryPath = post => {
@@ -110,8 +134,10 @@ function sortPosts(items, order = "newest") {
     </section>`;
 
   
-function postRow(post, index = 0) {
+function postRow(post, index = 0, query = "") {
   const time = formatPostTime(post);
+  // Array.map also passes its array as argument 3; ignore it on the homepage.
+  const activeQuery = typeof query === "string" ? query.trim() : "";
 
   return `
     <a class="post-row"
@@ -122,13 +148,17 @@ function postRow(post, index = 0) {
       </span>
 
       <span class="post-main">
-        <span class="post-mini">${h(categoryPath(post))}</span>
+        <span class="post-mini">${highlightMatches(categoryPath(post), activeQuery)}</span>
 
-        <strong>${h(post.title)}</strong>
+        <strong>${highlightMatches(post.title, activeQuery)}</strong>
 
         ${post.teaser
-          ? `<span class="post-teaser">${h(post.teaser)}</span>`
+          ? `<span class="post-teaser">${highlightMatches(post.teaser, activeQuery)}</span>`
           : ""}
+        ${activeQuery ? (post.tags || [])
+          .filter(tag => matchesSearch(tag, activeQuery))
+          .map(tag => `<span class="post-match-tag">命中标签：#${highlightMatches(tag, activeQuery)}</span>`)
+          .join("") : ""}
       </span>
 
       <span class="post-aside">
@@ -175,7 +205,7 @@ function postRow(post, index = 0) {
 
       <div class="paper-content">
         <section class="wrap home-latest">
-          ${sectionHead("最近整理的笔记","Recent Notes", "ww", linkArrow("#notes","全部笔记"))}
+          ${sectionHead("最近整理的笔记","Recent Notes", "TODO23", linkArrow("#notes","全部笔记"))}
           <div class="post-list">${featured.map(postRow).join("")}</div>
         </section>
 
@@ -184,7 +214,7 @@ function postRow(post, index = 0) {
             <div class="subject-note">
               <span class="section-kicker">笔记总览</span>
               <h2>未来は<br>そこにあるから</h2>
-              <p>aa</p>
+              <p>TODO</p>
               <div class="subject-mark" aria-hidden="true"><span>☾</span><i></i></div>
             </div>
             <div class="subject-index">
@@ -211,7 +241,7 @@ function postRow(post, index = 0) {
         <section class="wrap home-closing">
           <div class="closing-lines"><span>还有一些留白</span><i></i></div>
           <div><h2>网页会不断更新，请期待～</h2>
-            <p>bb</p>
+            <p>TODO2</p>
             ${linkArrow("#favorites","听歌")}
           </div>
         </section>
@@ -233,7 +263,7 @@ function postRow(post, index = 0) {
             <button type="button" class="filter ${notesCategory===cat.id?'active':''}" data-cat="${h(cat.id)}">
               <span>${h(cat.label)}</span><small>${cat.id==="all"?POSTS.length:POSTS.filter(x=>x.category===cat.id).length}</small>
             </button>`).join("")}</div>
-          <div class="notes-margin">ee</div>
+          <div class="notes-margin">TODO3</div>
         </aside>
         <div class="notes-main">
           <label class="search-line">
@@ -344,27 +374,16 @@ function renderNoteSubcategories() {
 }
 
 function updateNotes() {
-  
-const filtered = POSTS.filter(post => {
-  const matchCategory =
-    notesCategory === "all" ||
-    post.category === notesCategory;
-
-  const matchSubcategory =
-    notesSubcategory === "all" ||
-    post.subcategory === notesSubcategory;
-
-  const searchable = [
-    post.title,
-    post.teaser,
-    ...(post.tags || []),
-    categoryPath(post)
-  ].join(" ").toLocaleLowerCase();
-
-  return matchCategory &&
-    matchSubcategory &&
-    searchable.includes(notesQuery.toLocaleLowerCase());
-});
+  const query = notesQuery.trim();
+  const filtered = POSTS.filter(post => {
+    const matchCategory = notesCategory === "all" || post.category === notesCategory;
+    const matchSubcategory = notesSubcategory === "all" ||
+      post.subcategory === notesSubcategory;
+    // Match individual visible fields and tags, starting with the FIRST character.
+    const fields = [post.title, post.teaser, ...(post.tags || []), categoryPath(post)];
+    return matchCategory && matchSubcategory &&
+      (!query || fields.some(field => matchesSearch(field, query)));
+  });
 
   const selected = sortPosts(filtered, notesSort);
 
@@ -376,7 +395,7 @@ const filtered = POSTS.filter(post => {
   
 document.getElementById("notes-results").innerHTML =
     selected.length
-      ? selected.map(postRow).join("")
+      ? selected.map((post, index) => postRow(post, index, notesQuery)).join("")
       : `<p class="notes-empty">空</p>`;
 }
 
@@ -646,12 +665,14 @@ for (const pre of codeBlocks) {
     FRAGMENT_TYPES.find(item => item[0] === type)?.[1] || "摘句";
 
   function fragments() {
+    fragmentsType = "all";
+    fragmentsQuery = "";
     app.innerHTML = `
       <div class="paper-content fragments-page">
         <header class="wrap page-heading fragments-intro">
           ${eyebrow("摘句")}
           <h1>Fragments</h1>
-          <p>。</p>
+          <p>TODO10</p>
         </header>
         <section class="wrap fragments-library" aria-label="摘句收藏">
           <div class="fragments-tabs" role="group" aria-label="摘句分类">
@@ -685,7 +706,7 @@ for (const pre of codeBlocks) {
     updateFragments();
   }
 
-  function fragmentCard(item, position) {
+  function fragmentCard(item, position, query = "") {
     const type = fragmentTypeLabel(item.type);
     const date = typeof item.date === "string" ? item.date.slice(0, 10) : "";
     const origin = [item.work, item.creator].filter(Boolean);
@@ -701,8 +722,8 @@ for (const pre of codeBlocks) {
           <span>${h(type)}</span>
           ${date ? `<time datetime="${h(date)}">${h(date)}</time>` : ""}
         </div>
-        <blockquote class="fragment-text">${h(item.text)}</blockquote>
-        ${item.translation ? `<p class="fragment-translation">${h(item.translation)}</p>` : ""}
+        <blockquote class="fragment-text">${highlightMatches(item.text, query)}</blockquote>
+        ${item.translation ? `<p class="fragment-translation">${highlightMatches(item.translation, query)}</p>` : ""}
         ${picture ? `
           <button type="button" class="fragment-image"
                   data-frag-image="${h(item.id)}" aria-label="放大查看相关图片">
@@ -712,9 +733,9 @@ for (const pre of codeBlocks) {
           </button>` : ""}
         <div class="fragment-foot">
           <div class="fragment-attribution">
-            ${origin.length ? `<p>${origin.map(h).join(" <span aria-hidden='true'>/</span> ")}</p>` : ""}
+            ${origin.length ? `<p>${origin.map(value => highlightMatches(value, query)).join(" <span aria-hidden='true'>/</span> ")}</p>` : ""}
             ${tags.length ? `<div class="fragment-tags">${tags.map(tag =>
-              `<span>${h(tag)}</span>`).join("")}</div>` : ""}
+              `<span>${highlightMatches(tag, query)}</span>`).join("")}</div>` : ""}
           </div>
           <div class="fragment-actions">
             ${source ? `<a href="${h(source)}" target="_blank"
@@ -736,14 +757,12 @@ for (const pre of codeBlocks) {
       button.setAttribute("aria-pressed", String(active));
     });
 
-    const query = fragmentsQuery.toLocaleLowerCase();
+    const query = fragmentsQuery.trim();
     const filtered = FRAGMENTS.filter(item => {
       if (fragmentsType !== "all" && item.type !== fragmentsType) return false;
-      const searchable = [
-        item.text, item.translation, item.work, item.creator,
-        ...(Array.isArray(item.tags) ? item.tags : [])
-      ].join(" ").toLocaleLowerCase();
-      return searchable.includes(query);
+      const fields = [item.text, item.translation, item.work, item.creator,
+        ...(Array.isArray(item.tags) ? item.tags : [])];
+      return !query || fields.some(field => matchesSearch(field, query));
     }).sort((a, b) => {
       const x = Date.parse(a.date || "") || 0;
       const y = Date.parse(b.date || "") || 0;
@@ -753,25 +772,12 @@ for (const pre of codeBlocks) {
     document.getElementById("fragments-count").textContent =
       `共 ${filtered.length} 条 · ${fragmentTypeLabel(fragmentsType)}`;
 
-    if (FRAGMENTS.length === 0) {
-      results.innerHTML = `
-        <div class="fragments-empty">
-          <span class="fragments-empty-index">01</span>
-          <h2>e</h2>
-          <p>ee</p>
-        </div>`;
-      return;
-    }
     if (filtered.length === 0) {
-      results.innerHTML = `
-        <div class="fragments-empty">
-          <span class="fragments-empty-index">NO MATCHES</span>
-          <h2>没有找到匹配的摘句。</h2>
-          <button type="button" data-frag-reset>清除筛选</button>
-        </div>`;
+      results.innerHTML = `<div class="fragments-empty"><span class="fragments-empty-word">空</span></div>`;
       return;
     }
-    results.innerHTML = filtered.map(fragmentCard).join("");
+    results.innerHTML = filtered.map((item, index) =>
+      fragmentCard(item, index, fragmentsQuery)).join("");
     // 用户在 data/fragments.js 填错图片路径时，隐藏损坏的图片入口。
     results.querySelectorAll(".fragment-image img").forEach(img => {
       img.addEventListener("error", () => {
@@ -828,16 +834,16 @@ app.innerHTML = `
             <span class="project-state"><i></i> 进行中</span>
             <span class="project-num">01 / 个人网站</span>
             <h2>M1kAovo</h2>
-            <p>nio</p>
+            <p>TODO11</p>
             <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
           </div>
           
         </div>
         <div class="project-next">
-          <article><span>02</span><h3>ee</h3><p>e</p></article>
-          <article><span>03</span><h3>ee</h3><p>e</p></article>
+          <article><span>TODO12</span><h3>TODO14</h3><p>TODO15</p></article>
+          <article><span>TODO13</span><h3>TODO16</h3><p>TODO17</p></article>
         </div>
-        <a class="resume-access" href="#resume"><span>个人简历</span><span>e</span><span aria-hidden="true">↗</span></a>
+        <a class="resume-access" href="#resume"><span>个人简历</span><span>TODO18</span><span aria-hidden="true">↗</span></a>
       </section>
     </div>`;
   }
@@ -882,10 +888,10 @@ app.innerHTML = `
       <div class="wrap resume-tools"><span>目前是未填写的简历模板</span><button type="button" id="print-btn">打印 / 保存 PDF ↗</button></div>
       <section class="resume-paper wrap">
         <div class="resume-title"><div><small>个人履历</small><h2>M1kAovo</h2><p>计算机专业 · 在读</p></div><span>☾</span></div>
-        <div class="resume-section"><h3>教育背景</h3><p>e</p></div>
-        <div class="resume-section"><h3>技术方向</h3><p>e</p></div>
-        <div class="resume-section"><h3>项目经历</h3><p>e</p></div>
-        <div class="resume-section"><h3>竞赛与科研</h3><p>e</p></div>
+        <div class="resume-section"><h3>教育背景</h3><p>TODO19</p></div>
+        <div class="resume-section"><h3>技术方向</h3><p>TODO20</p></div>
+        <div class="resume-section"><h3>项目经历</h3><p>TODO21</p></div>
+        <div class="resume-section"><h3>竞赛与科研</h3><p>TODO22</p></div>
         <div class="resume-section"><h3>公开链接</h3><p>GitHub、联系邮箱：</p></div>
       </section>
     </div>`;

@@ -6,7 +6,7 @@ window.SITE = {
   heroNote: "Dreams Everywhere.",
 
   aboutIntro: "你好，我是 M1kAovo，一个大三计算机专业学生，算法竞赛、二次元、音游爱好者",
-  aboutExtra: "这个",
+  aboutExtra: "TODO5",
   now: [
     { title: "正在整理", text: "算法竞赛笔记与题解" },
     { title: "想继续学", text: "数学、计算机系统与大模型" },

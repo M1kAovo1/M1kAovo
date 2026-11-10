@@ -294,3 +294,14 @@
   .fragment-text { font-size: 21px; }
   .fragment-topline time { font-size: 10px; }
 }
+
+/* M1KAOVO_SEARCH_PATCH_V1: a quiet empty state without reset buttons. */
+.fragments-empty {
+  padding: 36px 0;
+  border-bottom: 0;
+}
+.fragments-empty-word {
+  color: var(--text-soft);
+  font: 400 22px/1.6 var(--serif);
+  letter-spacing: .08em;
+}

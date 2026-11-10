@@ -5,10 +5,21 @@
  */
 window.POSTS = [
   {
+    "id": "problem1",
+    "title": "问题1",
+    "category": "cs",
+    "subcategory": "troubles",
+    "tags": [],
+    "teaser": "",
+    "reading": "",
+    "createdAt": "2026-11-10T16:47:52+08:00",
+    "file": "articles/problem1.html"
+  },
+  {
     "id": "commands",
     "title": "个人网站指令",
     "category": "cs",
-    "subcategory": "",
+    "subcategory": "troubles",
     "tags": [
       "git"
     ],

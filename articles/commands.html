@@ -1,34 +1,27 @@
 <!-- 在这里写自己的正文 -->
 <h2>HTML / CSS 常用语法</h2>
-<pre>
-    <code>
-        .page {
-            opacity: 0.55 !important;
-        }
-    </code>
-</pre>
-
+<pre data-lang="CSS"><code>.page {
+    opacity: 0.55 !important;
+}</code></pre>
 
 <h2>Git / GitHub</h2>
 
 <h3>日常网站更新</h3>
 
-<pre><code>
-git status --short（查看修改）
+<pre data-lang="Bash"><code>git status --short（查看修改）
 git add -A（暂存所有未忽略的改动）
 git diff --cached --stat（检查提交文件）
 git commit -m "Update website"（记录一次本地版本）
-git push origin main（上传到 GitHub）
-</code></pre>
+git push origin main（上传到 GitHub）</code></pre>
 
 
 <h3>查看代码变化</h3>
 
-<pre><code>git diff
+<pre data-lang="Bash"><code>git diff
 git diff -- app.js
 git log -1 --oneline</code></pre>
 
 <h3>SSH</h3>
 
-<pre><code>git remote -v
+<pre data-lang="Bash"><code>git remote -v
 ssh -T -p 443 git@ssh.github.com</code></pre>
